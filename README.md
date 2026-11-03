@@ -12,5 +12,6 @@ A small starter repository used to try the dsh-superagent prototype.
 
 ```sh
 ./greet.sh
-./greet.sh Ada   # prints "Hello, Ada!"
+./greet.sh Ada        # prints "Hello, Ada!"
+./greet.sh --version  # prints "blue-orca 0.1.0"
 ```
