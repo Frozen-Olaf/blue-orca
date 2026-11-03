@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax
+        run: |
+          sh -n greet.sh
+          bash -n greet.sh
+      - name: Smoke test
+        run: |
+          test "$(./greet.sh)" = "Hello, world!"
+          test "$(./greet.sh Ada)" = "Hello, Ada!"
+      - name: README documents the usage line
+        run: grep -q './greet.sh Ada' README.md
